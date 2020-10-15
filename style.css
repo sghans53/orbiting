@@ -1,0 +1,277 @@
+/* style.css */
+
+
+
+/* Styling for box.html */
+
+#box {
+    background: blue;
+    width: 200px;
+    height: 200px;
+    margin: 40px auto;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 19px;
+}
+
+
+
+/* Styling for colors.html */
+
+body#colors {
+    background: rgba(25,52,84,1);
+    color: white;
+}
+
+
+
+
+
+/* Styling for animations.html */
+
+@keyframes box {
+    from { background-color: blue; }
+    to { background-color: red; }
+}
+
+#box {
+    animation-name: box;
+    animation-duration: 10s;
+}
+
+
+
+/* Styling for Buttons */
+
+@-webkit-keyframes effect {
+    from {padding: 10px 20px; font-size: inherit;}
+    to {padding: 15px 20px; font-size: 40px;}
+}
+
+
+@keyframes effect {
+    from {padding: 10px 20px; font-size: inherit;}
+    to {padding: 15px 20px; font-size: 40px;}
+}
+
+
+.button {
+    display: inline-block;
+    background: #fc3;
+    background: linear-gradient(#fc3, #f91);
+    border: solid 1px #999;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    text-decoration: none;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+}
+
+.button:hover {
+    border-color: #888;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.9);
+    background: #f91;
+    background: linear-gradient(to top,#fc3,#f91);
+    
+    -webkit-animation-name: effect;
+    animation-name: effect;
+    -webkit-animation-duration: 2s;
+    animation-duration: .5s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    
+}
+
+.button:active {
+    position: relative;
+    top: 1px;
+}
+
+.alt-button {
+    background: radial-gradient(#fc3, #f91);
+}
+
+.alt-button:hover {
+    background: radial-gradient(to top, #fc3, #f91);
+}
+
+
+
+
+
+
+
+
+
+
+/* Styling for Orbit Animations */
+
+@keyframes starPulse {
+    from {opacity: 1;}
+    to {opacity: 0.2;}
+}
+
+@keyframes sunFire{
+    from {
+        -webkit-box-shadow: 0 0 50px #f5c91a;
+        -moz-box-shadow: 0 0 50px #f5c91a;
+        box-shadow: 0 0 50px #f5c91a;
+    }
+    to {
+        -webkit-box-shadow: 0 0 100px #f5c91a;
+        -moz-box-shadow: 0 0 100px #f5c91a;
+        box-shadow: 0 0 100px #f5c91a;
+    }
+}
+
+@keyframes spin {
+    from {transform: rotate(0);}
+    to {transform: rotate(360deg);}
+}
+
+
+
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+#universe { 
+    background: black;
+    background: -webkit-radial-gradient(#555, #000);
+    background: -moz-radial-gradient(#555, #000);
+    background: -o-radial-gradient(#555, #000);
+    background: radial-gradient(#555, #000);
+    
+}
+
+#stars {
+    height: 100%;
+    width: 100%;
+    background: url("images/stars.png");
+    
+    position: relative;
+    z-index: 2;
+    
+    -webkit-animation: starPulse 4s infinite alternate;
+    -moz-animation: starPulse 4s infinite alternate;
+    -o-animation: starPulse 4s infinite alternate;
+    animation: starPulse 4s infinite alternate;
+}
+
+#sun {
+    height: 200px;
+    width: 200px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    
+    position: absolute;
+    z-index: 4;
+    top: 50%;
+    left: 50%;
+    
+    margin-top: -100px;
+    margin-left: -100px;
+    
+    
+    background: orange;
+    background: -webkit-radial-gradient(#f5c313, #ec7e08);
+    background: -moz-radial-gradient(#f5c313, #ec7e08);
+    background: -o-radial-gradient(#f5c313, #ec7e08);
+    background: radial-gradient(#f5c313, #ec7e08);
+    
+    -webkit-box-shadow: 0 0 50px #f5c91a;
+    -moz-box-shadow: 0 0 50px #f5c91a;
+    box-shadow: 0 0 50px #f5c91a;
+    
+    -webkit-animation: sunFire 4s infinite alternate;
+    -moz-animation: sunFire 4s infinite alternate;
+    -o-animation: sunFire 4s infinite alternate;
+    animation: sunFire 4s infinite alternate;
+}
+
+#earthOrbit {
+    height: 700px;
+    width: 600px;
+    /* border: solid 1px red; */
+    
+    /* cannot see the object? -- maybe bc of the layer -- bring it front*/
+    position: absolute;
+    z-index: 6;
+    
+    /* still cannot see it? -- maybe bc of the positioning*/
+    top: 50%;
+    left: 50%;
+    
+    margin-top: -300px;
+    margin-left: -300px;
+    
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    
+    -webkit-animation: spin 30s linear infinite;
+    -moz-animation: spin 30s linear infinite;
+    -o-animation: spin 30s linear infinite;
+    animation: spin 30s linear infinite;
+}
+
+#earth {
+   position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -40px;
+    
+    -webkit-animation: spin 3s linear infinite;
+    -moz-animation: spin 3s linear infinite;
+    -o-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+}
+
+#moonOrbit {
+    /* border: solid 1px orange; */
+    height: 120px;
+    width: 120px;
+    position: absolute;
+    z-index: 8;
+    top: 50%;
+    left: -20px;
+    
+    margin-top: -60px;
+    
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    
+    -webkit-animation: spin 10s linear infinite reverse
+    -moz-animation: spin 10s linear infinite reverse;
+    -o-animation: spin 10s linear infinite reverse;
+    animation: spin 10s linear infinite reverse;
+}
+
+#moon {
+    height: 20px;
+    width: 20px;
+    
+    background: gray;
+    background: -webkit-radial-gradient(#ddd, #888);
+    background: -moz-radial-gradient(#ddd, #888);
+    background: radial-gradient(#ddd, #888);
+    
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    
+}
+
+
+
+
+
+
+
+
+
